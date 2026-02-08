@@ -17,6 +17,8 @@ services:
     volumes:
       - ./spark_jobs:/opt/spark/jobs
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+    env_file:
+      - .env
     networks:
       - data-network
 
@@ -36,6 +38,8 @@ services:
     depends_on:
       - spark-master
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    env_file:
+      - .env
     networks:
       - data-network
 
@@ -98,6 +102,8 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
     command: scheduler
+    env_file:
+      - .env
     networks:
       - data-network
 
