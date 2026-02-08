@@ -1,0 +1,53 @@
+# --- Secrets & Environment Variables (CRITICAL) ---
+.env
+.env.local
+*.key
+*.pem
+secrets/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# --- Data & Large Files (Keep these local only) ---
+data/
+*.csv
+*.parquet
+*.json
+*.zip
+*.tar.gz
+*.avro
+
+# --- Docker & Airflow Logs ---
+# This ignores the entire logs folder to prevent the "Function not implemented" error
+logs/
+plugins/
+airflow-webserver.pid
+standalone_admin_password.txt
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- IDE & OS Settings ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Infrastructure ---
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# --- Spark ---
+metastore_db/
+derby.log
+spark-warehouse/
