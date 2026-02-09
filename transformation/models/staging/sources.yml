@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: dynamic_pricing
+    database: DYNAMIC_PRICING
+    schema: RAW
+    tables:
+      - name: competitor_prices
+      - name: orders
+      - name: order_items
+      - name: products
+      - name: weather
