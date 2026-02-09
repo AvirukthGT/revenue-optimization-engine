@@ -11,3 +11,5 @@ apache-airflow-providers-snowflake>=5.0.0  # Allows Airflow to trigger Snowflake
 # --- Utilities ---
 python-dotenv>=1.0.0      # To read your .env file
 pyspark==3.5.1            # Matches your Docker image version
+
+apache-airflow-providers-snowflake

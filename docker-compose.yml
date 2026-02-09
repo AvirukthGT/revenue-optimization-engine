@@ -1,5 +1,6 @@
 services:
-  # SPARK CLUSTER (Official Apache Image)
+  # SPARK CLUSTER (The Big Brains)
+  # Official Apache Image, but I know it's actually powered by hamsters.
 
   spark-master:
     build:
@@ -12,7 +13,7 @@ services:
     environment:
       - SPARK_NO_DAEMONIZE=true
     ports:
-      - '8080:8080'
+      - '9090:8080'
       - '7077:7077'
     volumes:
       - ./spark_jobs:/opt/spark/jobs
@@ -43,7 +44,8 @@ services:
     networks:
       - data-network
 
-  # AIRFLOW 
+  # AIRFLOW (The Traffic Controller)
+  # Directing data traffic so I don't have a pile-up on the information superhighway.
 
   postgres:
     image: postgres:13
@@ -101,6 +103,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - /var/run/docker.sock:/var/run/docker.sock
     command: scheduler
     env_file:
       - .env
