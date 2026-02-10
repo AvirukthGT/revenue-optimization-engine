@@ -11,23 +11,6 @@
 
 **An End-to-End Data Engineering & Predictive Analytics Platform**
 
-## Table of Contents
-
-* [Executive Summary](https://www.google.com/search?q=%23executive-summary)
-* [Problem Statement](https://www.google.com/search?q=%23problem-statement)
-* [Solution Architecture](https://www.google.com/search?q=%23solution-architecture)
-* [Tech Stack](https://www.google.com/search?q=%23tech-stack)
-* [Key Features & Innovations](https://www.google.com/search?q=%23key-features--innovations)
-* [Project Structure](https://www.google.com/search?q=%23project-structure)
-* [Data Source Overview](https://www.google.com/search?q=%23data-source-overview)
-* [Component Deep Dive](https://www.google.com/search?q=%23component-deep-dive)
-* [Data Transformation (dbt)](https://www.google.com/search?q=%23data-transformation-dbt)
-* [Data Quality & Testing](https://www.google.com/search?q=%23data-quality--testing)
-* [Insights & Visualizations](https://www.google.com/search?q=%23insights--visualizations)
-* [Steps to Reproduce](https://www.google.com/search?q=%23steps-to-reproduce)
-* [Future Roadmap](https://www.google.com/search?q=%23future-roadmap)
-* [Contact Information](https://www.google.com/search?q=%23contact-information)
-
 ---
 
 ## Executive Summary
