@@ -34,7 +34,7 @@
 
 The **Revenue Optimization Engine** is a full-stack data platform engineered to solve the inefficiencies of static pricing in e-commerce. In a market where consumer demand fluctuates hourly due to external factors like weather and competitor moves, relied-upon "cost-plus" pricing strategies often leave money on the table.
 
-This project integrates disparate data sources—historical sales records, real-time competitor pricing, and hyper-local weather forecasts—into a unified predictive model. By leveraging machine learning to understand demand elasticity, the system recommends optimal price points that maximize Total Revenue (GMV) while adhering to strict business guardrails.
+This project integrates disparate data sources, historical sales records, real-time competitor pricing, and hyper-local weather forecasts, into a unified predictive model. By leveraging machine learning to understand demand elasticity, the system recommends optimal price points that maximize Total Revenue (GMV) while adhering to strict business guardrails.
 
 The platform demonstrates a **complete data lifecycle**, from automated infrastructure provisioning (IaC) and batch ingestion to complex dbt transformations and a user-facing analytical dashboard that empowers category managers to simulate pricing scenarios in real-time.
 
@@ -96,13 +96,13 @@ The final interface is a reactive **Reflex** Single Page Application (SPA). This
 ## Key Features & Innovations
 
 ### 🌦️ The "Storm Surge" Engine
-During Exploratory Data Analysis (EDA), we uncovered a strong correlation between precipitation and specific product categories—most notably, a **+20.5% lift in Electronics sales during rainy days**. The engine is designed to detect "Rain" in the weather forecast and automatically adjusts the recommended margin to capture this high-intent demand, optimizing revenue without sacrificing volume.
+During Exploratory Data Analysis (EDA), we uncovered a strong correlation between precipitation and specific product categories, most notably, a **+20.5% lift in Electronics sales during rainy days**. The engine is designed to detect "Rain" in the weather forecast and automatically adjusts the recommended margin to capture this high-intent demand, optimizing revenue without sacrificing volume.
 
-### ⏳ Temporal Data Shifting
+### Temporal Data Shifting
 One of the biggest challenges in Using public datasets is their age. To bridge the gap between high-quality open-source data (Olist, 2017) and the need for modern context (Live Competitor Prices, 2026), the pipeline implements a robust date-shifting algorithm. This allows the system to **simulate realistic 2026 market scenarios** using validated behavioral patterns from the past.
 
-### 🛡️ Economic Guardrails
-Unlike generic ML models that blindly minimize error, this engine prioritizes business safety. We apply **monotonic constraints** to the XGBoost estimator to enforce the economic law of demand. This guarantees that the model never recommends a price hike that would theoretically increase sales volume—a common "hallucination" in unconstrained models that destroys trust with business stakeholders.
+### Economic Guardrails
+Unlike generic ML models that blindly minimize error, this engine prioritizes business safety. We apply **monotonic constraints** to the XGBoost estimator to enforce the economic law of demand. This guarantees that the model never recommends a price hike that would theoretically increase sales volume, a common "hallucination" in unconstrained models that destroys trust with business stakeholders.
 
 ---
 
@@ -280,7 +280,7 @@ def load_artifacts():
     global model_pipeline, historical_data
     if os.path.exists(MODEL_PATH):
         model_pipeline = joblib.load(MODEL_PATH)
-        print("✅ Brain loaded: XGBoost Pipeline ready.")
+        print("Brain loaded: XGBoost Pipeline ready.")
 ```
 
 ### 5. Frontend Engineering (Reflex)
@@ -317,7 +317,7 @@ Ensuring data reliability is paramount, especially when handling financial decis
 
 ### 1. Schema Validation (Pydantic)
 *   **Strict Typing:** The backend acts as a gatekeeper, enforcing data types for all API inputs using Pydantic models.
-*   **Validation Rules:** Logic rules—such as ensuring `price` is positive and `category` matches known inventory—prevent bad data from ever reaching the model.
+*   **Validation Rules:** Logic rules, such as ensuring `price` is positive and `category` matches known inventory, prevent bad data from ever reaching the model.
 
 ### 2. Model Guardrails (XGBoost)
 *   **Monotonicity:** We enforce `(-1, -1)` constraints on price features. This hard-codes the economic reality that as price increases, demand should generally decrease or stay flat, preventing the model from making nonsensical high-price recommendations.
@@ -334,22 +334,27 @@ The platform provides a comprehensive user interface for exploring data and simu
 
 ### 1. Dashboard Overview
 The command center provides a high-level view of key metrics, including total revenue, active alerts, and system health. It serves as the starting point for any pricing analyst.
+
 ![Dashboard Overview](assets/overview_tab.png)
 
 ### 2. Analytics & Trends
 This tab allows for a deep dive into performance metrics. Analysts can compare "Our Price" vs "Competitor Price" over simulated time sequences to identify periods where we were over-priced or leaving money on the table.
+
 ![Analytics Tab](assets/analytics_tab.png)
 
 ### 3. Data Explorer
 Transparency is key to trust. The Data Explorer provides a raw view of the underlying data, allowing users to inspect individual records, sort by different metrics, and export data for further ad-hoc analysis in Excel or other tools.
+
 ![Data Tab](assets/data_tab.png)
 
 ### 4. Revenue Distribution
 Analyzing the contribution of different product categories to the total GMV reveals which segments are the primary drivers of business value.
+
 ![Revenue Distribution](assets/revenue-distribution.png)
 
 ### 5. The Impact of Weather
 We observed a significant revenue lift in specific categories during rainy conditions. This chart visualizes that correlation, validating the "Storm Surge" hypothesis.
+
 ![Rain Impact](assets/impact_of_rain_on_revenue.png)
 
 ---
