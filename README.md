@@ -55,20 +55,19 @@ docker exec -it spark-master /opt/spark/bin/spark-submit \
 
 ## Project Roadmap & Status
 
-### Phase 1: Infrastructure & Ingestion (Current)
+### Phase 1: Infrastructure & Ingestion (Complete)
+- [x] Docker environment setup (Spark Cluster + Airflow).
+- [x] Custom Docker image with AWS & Snowflake dependencies.
+- [x] AWS S3 Bucket configuration for Data Lake.
+- [x] **Spark Job:** Scaled ingestion for 25+ products.
+- [x] **Backfill:** Generated 90 days of synthetic historical data.
+- [x] **Storage:** Automated S3 Parquet landing.
 
-* [x] Docker environment setup (Spark Cluster + Airflow).
-* [x] Custom Docker image with C++ compilers for Snowflake/Pandas.
-* [x] AWS S3 Bucket configuration for Data Lake.
-* [x] **Spark Job:** Ingest real-time competitor prices from ScrapingDog API.
-* [x] **Storage:** Save raw ingestion data to S3 in Parquet format.
-
-### Phase 2: Warehousing & Transformation (Next Steps)
-
-* [ ] Configure Snowflake Database & Warehouses.
-* [ ] Create **Storage Integration** between Snowflake and AWS S3.
-* [ ] Build **Snowpipe** or Copy command for automated loading.
-* [ ] Implement **dbt** (Data Build Tool) for data modeling.
+### Phase 2: Warehousing & Transformation (In Progress)
+- [x] Configure Snowflake Database & Warehouses.
+- [x] Create **Storage Integration** (S3 ↔ Snowflake).
+- [x] Automated Loading via Airflow (`COPY INTO`).
+- [ ] Implement **dbt** (Data Build Tool) for transformations.
 
 ### Phase 3: Automation & Analytics
 
